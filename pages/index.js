@@ -1,76 +1,6 @@
-import { useState } from 'react';
 import { logPathVisit } from '../lib/db';
 
-export default function CatchAllPage() {
-  const [generatedName, setGeneratedName] = useState('');
-  const [nameType, setNameType] = useState('full');
-
-  const firstNames = [
-    'Alex', 'Jordan', 'Taylor', 'Morgan', 'Casey', 'Riley', 'Avery', 'Quinn',
-    'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Sophia', 'Mason',
-    'Isabella', 'William', 'Charlotte', 'James', 'Amelia', 'Benjamin', 'Mia', 'Lucas',
-    'Harper', 'Henry', 'Evelyn', 'Alexander', 'Abigail', 'Michael', 'Emily', 'Daniel',
-    'Elizabeth', 'Jacob', 'Sofia', 'Logan', 'Avery', 'Jackson', 'Ella', 'Levi',
-    'Scarlett', 'Sebastian', 'Grace', 'Mateo', 'Chloe', 'Jack', 'Victoria', 'Owen',
-    'Zoe', 'Theodore', 'Lily', 'Aiden', 'Hannah', 'Samuel', 'Layla', 'Joseph'
-  ];
-
-  const lastNames = [
-    'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis',
-    'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson',
-    'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson',
-    'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker',
-    'Young', 'Allen', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen', 'Hill',
-    'Flores', 'Green', 'Adams', 'Nelson', 'Baker', 'Hall', 'Rivera', 'Campbell',
-    'Mitchell', 'Carter', 'Roberts', 'Gomez', 'Phillips', 'Evans', 'Turner'
-  ];
-
-  const businessNames = [
-    'Apex', 'Nova', 'Zenith', 'Prime', 'Elite', 'Fusion', 'Quantum', 'Nexus',
-    'Stellar', 'Phoenix', 'Synergy', 'Vertex', 'Catalyst', 'Infinity', 'Summit',
-    'Pinnacle', 'Dynamic', 'Evolution', 'Innovation', 'Momentum', 'Velocity',
-    'Precision', 'Excellence', 'Advantage', 'Enterprise', 'Solutions', 'Systems',
-    'Technologies', 'Consulting', 'Partners', 'Group', 'Corporation', 'Industries',
-    'Global', 'International', 'Worldwide', 'Universal', 'Metropolitan', 'Central'
-  ];
-
-  const petNames = [
-    'Buddy', 'Max', 'Charlie', 'Luna', 'Bella', 'Lucy', 'Cooper', 'Daisy',
-    'Milo', 'Sadie', 'Rocky', 'Molly', 'Bear', 'Lola', 'Duke', 'Sophie',
-    'Zeus', 'Chloe', 'Jack', 'Zoe', 'Oliver', 'Lily', 'Tucker', 'Penny',
-    'Leo', 'Nala', 'Buster', 'Ruby', 'Oscar', 'Rosie', 'Toby', 'Coco',
-    'Finn', 'Stella', 'Jasper', 'Roxy', 'Shadow', 'Princess', 'Gus', 'Honey'
-  ];
-
-  const getRandomItem = (array) => array[Math.floor(Math.random() * array.length)];
-
-  const generateName = () => {
-    let name = '';
-    
-    switch (nameType) {
-      case 'full':
-        name = `${getRandomItem(firstNames)} ${getRandomItem(lastNames)}`;
-        break;
-      case 'first':
-        name = getRandomItem(firstNames);
-        break;
-      case 'business':
-        name = `${getRandomItem(businessNames)} ${getRandomItem(['Solutions', 'Group', 'Corp', 'Industries', 'Partners', 'Systems', 'Tech', 'Labs', 'Works', 'Co.'])}`;
-        break;
-      case 'pet':
-        name = getRandomItem(petNames);
-        break;
-      case 'username':
-        name = `${getRandomItem(firstNames).toLowerCase()}${getRandomItem(['123', '456', '789', '_cool', '_pro', 'x', '2024', '_gamer'])}`;
-        break;
-    }
-    
-    setGeneratedName(name);
-  };
-
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(generatedName);
-  };
+export default function HomePage() {
 
   return (
     <div style={{ 
@@ -169,53 +99,7 @@ export default function CatchAllPage() {
 
       
       
-      {generatedName && (
-        <div style={{ 
-          backgroundColor: 'rgba(255,255,255,0.2)',
-          padding: '30px',
-          borderRadius: '20px',
-          marginBottom: '30px',
-          backdropFilter: 'blur(10px)'
-        }}>
-          <h2 style={{ 
-            fontSize: '2.5rem',
-            margin: '0 0 20px 0',
-            color: '#fff',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-          }}>
-            {generatedName}
-          </h2>
-          <button 
-            onClick={copyToClipboard}
-            style={{ 
-              padding: '10px 20px',
-              fontSize: '1rem',
-              backgroundColor: 'rgba(255,255,255,0.3)',
-              color: 'white',
-              border: '1px solid rgba(255,255,255,0.5)',
-              borderRadius: '25px',
-              cursor: 'pointer',
-              marginRight: '10px'
-            }}
-          >
-            📋 Copy
-          </button>
-          <button 
-            onClick={generateName}
-            style={{ 
-              padding: '10px 20px',
-              fontSize: '1rem',
-              backgroundColor: 'rgba(255,255,255,0.3)',
-              color: 'white',
-              border: '1px solid rgba(255,255,255,0.5)',
-              borderRadius: '25px',
-              cursor: 'pointer'
-            }}
-          >
-            🔄 Generate Another
-          </button>
-        </div>
-      )}
+
       
       <div style={{ 
         backgroundColor: 'rgba(255,255,255,0.1)',
@@ -232,9 +116,8 @@ export default function CatchAllPage() {
 
 // Server-side props to log the path visit
 export async function getServerSideProps(context) {
-  const { req, params } = context;
-  const slug = params.slug || [];
-  const path = slug.length > 0 ? `/${slug.join('/')}` : '/';
+  const { req } = context;
+  const path = '/'; // Root page is always '/'
   
   // Skip logging favicon requests
   if (path.includes('favicon')) {
