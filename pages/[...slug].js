@@ -99,7 +99,7 @@ export default function CatchAllPage() {
         Generate random names for any purpose!
       </p>
       
-      <div style={{ marginBottom: '30px' }}>
+      {/* <div style={{ marginBottom: '30px' }}>
         <label style={{ 
           display: 'block', 
           marginBottom: '15px',
@@ -148,7 +148,24 @@ export default function CatchAllPage() {
         onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
       >
         ✨ Generate Random Name
-      </button>
+      </button> */}
+      
+      <div style={{ 
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        padding: '30px',
+        borderRadius: '20px',
+        marginBottom: '30px',
+        backdropFilter: 'blur(10px)'
+      }}>
+        <p style={{ 
+          fontSize: '1.3rem',
+          margin: '0',
+          color: '#fff',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+        }}>
+          Let's go to https://name-generator-d7osfo7zk-sinclairs-projects-554cd551.vercel.app/name?name={{name}} to get the random name!
+        </p>
+      </div>
       
       {generatedName && (
         <div style={{ 
