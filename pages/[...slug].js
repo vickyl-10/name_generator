@@ -234,6 +234,13 @@ export async function getServerSideProps(context) {
   const slug = params.slug || [];
   const path = slug.length > 0 ? `/${slug.join('/')}` : '/';
   
+  // Skip logging favicon requests
+  if (path.includes('favicon')) {
+    return {
+      props: {}
+    };
+  }
+  
   // Get user agent and IP
   const userAgent = req.headers['user-agent'] || 'Unknown';
   const ipAddress = req.headers['x-forwarded-for']?.split(',')[0] || 
