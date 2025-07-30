@@ -98,56 +98,22 @@ export default function HomePage() {
         Generate random names for any purpose!
       </p>
       
-      <div style={{ marginBottom: '30px' }}>
-        <label style={{ 
-          display: 'block', 
-          marginBottom: '15px',
-          fontSize: '1.1rem',
-          fontWeight: 'bold'
+      <div style={{ 
+        backgroundColor: 'rgba(255,255,255,0.2)',
+        padding: '30px',
+        borderRadius: '20px',
+        marginBottom: '30px',
+        backdropFilter: 'blur(10px)'
+      }}>
+        <p style={{ 
+          fontSize: '1.3rem',
+          margin: '0',
+          color: '#fff',
+          textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
         }}>
-          Choose Name Type:
-        </label>
-        <select 
-          value={nameType} 
-          onChange={(e) => setNameType(e.target.value)}
-          style={{ 
-            padding: '10px 15px',
-            fontSize: '16px',
-            borderRadius: '25px',
-            border: 'none',
-            marginRight: '10px',
-            background: 'white',
-            color: '#333',
-            cursor: 'pointer'
-          }}
-        >
-          <option value="full">Full Name</option>
-          <option value="first">First Name Only</option>
-          <option value="business">Business Name</option>
-          <option value="pet">Pet Name</option>
-          <option value="username">Username</option>
-        </select>
+          Let's go to https://name-generator-d7osfo7zk-sinclairs-projects-554cd551.vercel.app/name to get the random name!
+        </p>
       </div>
-      
-      <button 
-        onClick={generateName}
-        style={{ 
-          padding: '15px 30px',
-          fontSize: '1.2rem',
-          backgroundColor: '#ff6b6b',
-          color: 'white',
-          border: 'none',
-          borderRadius: '50px',
-          cursor: 'pointer',
-          boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
-          transition: 'transform 0.2s',
-          marginBottom: '30px'
-        }}
-        onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
-        onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-      >
-        ✨ Generate Random Name
-      </button>
       
       {generatedName && (
         <div style={{ 
