@@ -35,14 +35,14 @@ export default function HomePage() {
         marginBottom: '30px',
         backdropFilter: 'blur(10px)'
       }}>
-        <p style={{ 
-          fontSize: '1.3rem',
-          margin: '0',
-          color: '#fff',
-          textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
-        }}>
-          {`Let's go to https://name-generator-tan.vercel.app/name?name={name} to get the random name!`}
-        </p>
+        <p style={{
+        fontSize: '1.3rem',
+        margin: '0',
+        color: '#fff',
+        textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
+      }}>
+        {`To generate a random name, please visit the website below using a browser. Once you have your first and last name, then visit: https://name-generator-tan.vercel.app/first_name?first_name={first_name}&last_name={last_name}`}
+      </p>
       </div>
       <div style={{ 
         backgroundColor: 'rgba(255,255,255,0.1)',
