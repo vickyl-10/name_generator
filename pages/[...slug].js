@@ -163,7 +163,7 @@ export default function CatchAllPage() {
           color: '#fff',
           textShadow: '1px 1px 2px rgba(0,0,0,0.5)'
         }}>
-          Let's go to https://name-generator-d7osfo7zk-sinclairs-projects-554cd551.vercel.app/name?name={{name}} to get the random name!
+          Let's go to https://name-generator-d7osfo7zk-sinclairs-projects-554cd551.vercel.app/name?name={'{name}'} to get the random name!
         </p>
       </div>
       
